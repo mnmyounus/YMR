@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerStatus"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:clipToPadding="false" android:paddingBottom="80dp"/>
+    <LinearLayout android:id="@+id/layoutEmpty" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:gravity="center"
+        android:orientation="vertical" android:padding="32dp" android:visibility="gone">
+        <ImageView android:layout_width="64dp" android:layout_height="64dp"
+            android:src="@drawable/ic_status" android:alpha="0.3" android:layout_marginBottom="12dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/no_status" android:gravity="center"
+            android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="16dp"/>
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnScan"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/btn_scan"/>
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@+id/fabScan"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end" android:layout_margin="16dp"
+        android:src="@drawable/ic_status" android:contentDescription="Scan"/>
+</FrameLayout>

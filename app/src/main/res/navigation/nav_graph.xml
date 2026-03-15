@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/lockFragment">
+
+    <fragment android:id="@+id/lockFragment"
+        android:name="com.mnmyounus.ymr.ui.auth.LockFragment" android:label="YMR">
+        <action android:id="@+id/to_home"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/lockFragment" app:popUpToInclusive="true"/>
+        <action android:id="@+id/to_setup"
+            app:destination="@id/setupFragment"
+            app:popUpTo="@id/lockFragment" app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment android:id="@+id/setupFragment"
+        android:name="com.mnmyounus.ymr.ui.auth.SetupFragment" android:label="Set Password">
+        <action android:id="@+id/setup_to_home"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/setupFragment" app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment android:id="@+id/homeFragment"
+        android:name="com.mnmyounus.ymr.ui.home.HomeFragment"
+        android:label="@string/nav_home"/>
+
+    <fragment android:id="@+id/featuresFragment"
+        android:name="com.mnmyounus.ymr.ui.features.FeaturesFragment"
+        android:label="@string/nav_features">
+        <action android:id="@+id/to_chat" app:destination="@id/chatFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/chatFragment"
+        android:name="com.mnmyounus.ymr.ui.features.ChatFragment" android:label="Chat">
+        <argument android:name="packageName" app:argType="string"/>
+        <argument android:name="senderName"  app:argType="string"/>
+        <argument android:name="appName"     app:argType="string"/>
+    </fragment>
+
+    <fragment android:id="@+id/settingsFragment"
+        android:name="com.mnmyounus.ymr.ui.settings.SettingsFragment"
+        android:label="@string/nav_settings"/>
+
+</navigation>

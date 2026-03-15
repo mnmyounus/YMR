@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#000000">
+    <ImageView android:id="@+id/ivFullImage" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:scaleType="fitCenter"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_gravity="bottom" android:orientation="horizontal"
+        android:padding="16dp" android:gravity="center" android:background="#80000000">
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnClose"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:layout_marginEnd="8dp"
+            android:text="Close" android:textColor="#FFF"/>
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnSave"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="Save to Gallery"/>
+    </LinearLayout>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal" android:layout_marginTop="16dp"
+        android:text="Tap image to save" android:textColor="#AAFFFFFF" android:textSize="13sp"/>
+</FrameLayout>

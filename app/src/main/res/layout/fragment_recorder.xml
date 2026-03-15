@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:gravity="center" android:padding="24dp">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Call Recorder" android:textSize="22sp" android:textStyle="bold"
+        android:textColor="?attr/colorPrimary" android:layout_marginBottom="8dp"/>
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Records calls automatically when active.\nOn Android 10+ only regular calls are supported.\nSocial media calls may be limited by the OS."
+        android:textSize="13sp" android:gravity="center" android:layout_marginBottom="24dp"
+        android:textColor="?attr/colorOnSurfaceVariant"/>
+
+    <TextView android:id="@+id/tvRecordingStatus" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:text="Not Recording"
+        android:textSize="16sp" android:textStyle="bold" android:layout_marginBottom="24dp"
+        android:textColor="@color/red_warn"/>
+
+    <com.google.android.material.button.MaterialButton android:id="@+id/btnToggleRecord"
+        android:layout_width="200dp" android:layout_height="wrap_content"
+        android:text="@string/start_record" android:layout_marginBottom="24dp"/>
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Voice Changer" android:textSize="16sp" android:textStyle="bold"
+        android:layout_marginBottom="12dp"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center" android:weightSum="4">
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnNormal"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:layout_margin="4dp" android:text="Normal"/>
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnHigh"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:layout_margin="4dp" android:text="High"/>
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnLow"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:layout_margin="4dp" android:text="Low"/>
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnRobot"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:layout_margin="4dp" android:text="Robot"/>
+    </LinearLayout>
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Saved Recordings" android:textSize="16sp" android:textStyle="bold"
+        android:layout_marginTop="24dp" android:layout_marginBottom="8dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerRecordings"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:clipToPadding="false" android:paddingBottom="80dp"/>
+
+    <TextView android:id="@+id/tvNoRecordings" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:text="No recordings yet"
+        android:textColor="?attr/colorOnSurfaceVariant" android:layout_gravity="center"/>
+
+</LinearLayout>

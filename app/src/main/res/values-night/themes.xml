@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.YMR" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">#4FD8EB</item>
+        <item name="colorOnPrimary">#003640</item>
+        <item name="colorPrimaryContainer">#004E5B</item>
+        <item name="colorOnPrimaryContainer">#97F0FF</item>
+        <item name="colorSurface">#191C1D</item>
+        <item name="colorOnSurface">#E1E3E3</item>
+        <item name="colorSurfaceVariant">#3F484A</item>
+        <item name="colorOnSurfaceVariant">#BFC8CA</item>
+        <item name="android:colorBackground">#0E1415</item>
+        <item name="android:statusBarColor">#191C1D</item>
+        <item name="android:navigationBarColor">#191C1D</item>
+    </style>
+</resources>
