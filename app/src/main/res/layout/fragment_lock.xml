@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:gravity="center" android:orientation="vertical" android:padding="32dp">
+    <ImageView android:layout_width="80dp" android:layout_height="80dp"
+        android:src="@drawable/ymr" android:layout_marginBottom="8dp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/app_full_name" android:textSize="20sp" android:textStyle="bold"
+        android:textColor="?attr/colorPrimary" android:layout_marginBottom="24dp"/>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:hint="@string/lock_hint">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:inputType="textPassword" android:maxLength="5"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView android:id="@+id/tvError" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:textColor="@color/red_warn"
+        android:textSize="13sp" android:layout_marginTop="6dp" android:visibility="gone"/>
+    <com.google.android.material.button.MaterialButton android:id="@+id/btnUnlock"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" android:text="@string/btn_unlock"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/dev_name" android:textSize="11sp"
+        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="32dp"/>
+</LinearLayout>

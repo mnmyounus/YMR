@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment android:id="@+id/homeFragment"
+        android:name="com.mnmyounus.ymr.ui.home.HomeFragment"
+        android:label="@string/nav_home"/>
+
+    <fragment android:id="@+id/featuresFragment"
+        android:name="com.mnmyounus.ymr.ui.features.FeaturesFragment"
+        android:label="@string/nav_features">
+        <action android:id="@+id/to_chat" app:destination="@id/chatFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/chatFragment"
+        android:name="com.mnmyounus.ymr.ui.features.ChatFragment"
+        android:label="Chat">
+        <argument android:name="packageName" app:argType="string"/>
+        <argument android:name="senderName"  app:argType="string"/>
+        <argument android:name="appName"     app:argType="string"/>
+    </fragment>
+
+    <fragment android:id="@+id/settingsFragment"
+        android:name="com.mnmyounus.ymr.ui.settings.SettingsFragment"
+        android:label="@string/nav_settings"/>
+
+</navigation>

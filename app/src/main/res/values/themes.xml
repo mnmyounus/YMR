@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.YMR" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary_container</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+        <item name="colorError">@color/error</item>
+        <item name="android:colorBackground">@color/surface</item>
+        <item name="android:statusBarColor">@color/surface</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+    </style>
+    <style name="Theme.YMR.Dark" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">#4FD8EB</item>
+        <item name="colorOnPrimary">#003640</item>
+        <item name="colorPrimaryContainer">#004E5B</item>
+        <item name="colorOnPrimaryContainer">#97F0FF</item>
+        <item name="colorSurface">#191C1D</item>
+        <item name="colorOnSurface">#E1E3E3</item>
+        <item name="colorSurfaceVariant">#3F484A</item>
+        <item name="colorOnSurfaceVariant">#BFC8CA</item>
+        <item name="android:colorBackground">#0E1415</item>
+        <item name="android:statusBarColor">#191C1D</item>
+        <item name="android:navigationBarColor">#191C1D</item>
+    </style>
+</resources>

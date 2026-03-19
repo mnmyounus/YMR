@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.google.android.material.chip.ChipGroup android:id="@+id/chipGroup"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:padding="12dp" app:singleSelection="true">
+        <com.google.android.material.chip.Chip android:id="@+id/chipWeekly"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/weekly_cap" android:checked="true"/>
+        <com.google.android.material.chip.Chip android:id="@+id/chipMonthly"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/monthly_cap"/>
+        <com.google.android.material.chip.Chip android:id="@+id/chipYearly"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/yearly_cap"/>
+    </com.google.android.material.chip.ChipGroup>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:padding="12dp" android:weightSum="3">
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Material3.CardView.Filled"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:layout_marginEnd="4dp" app:cardCornerRadius="12dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:gravity="center" android:padding="10dp">
+                <TextView android:id="@+id/tvIncoming" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="0"
+                    android:textSize="20sp" android:textStyle="bold" android:textColor="@color/green_ok"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/incoming" android:textSize="11sp"
+                    android:textColor="?attr/colorOnSurfaceVariant"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Material3.CardView.Filled"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:layout_marginHorizontal="4dp" app:cardCornerRadius="12dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:gravity="center" android:padding="10dp">
+                <TextView android:id="@+id/tvOutgoing" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="0"
+                    android:textSize="20sp" android:textStyle="bold" android:textColor="?attr/colorPrimary"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/outgoing" android:textSize="11sp"
+                    android:textColor="?attr/colorOnSurfaceVariant"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Material3.CardView.Filled"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:layout_marginStart="4dp" app:cardCornerRadius="12dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:gravity="center" android:padding="10dp">
+                <TextView android:id="@+id/tvMissed" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="0"
+                    android:textSize="20sp" android:textStyle="bold" android:textColor="@color/red_warn"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/missed" android:textSize="11sp"
+                    android:textColor="?attr/colorOnSurfaceVariant"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerCalls"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:clipToPadding="false" android:paddingBottom="80dp"/>
+    <LinearLayout android:id="@+id/layoutEmpty" android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1"
+        android:gravity="center" android:orientation="vertical" android:padding="32dp" android:visibility="gone">
+        <ImageView android:layout_width="64dp" android:layout_height="64dp"
+            android:src="@drawable/ic_calls" android:alpha="0.3" android:layout_marginBottom="12dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/no_calls" android:gravity="center"
+            android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="16dp"/>
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnGrantPerm"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/grant"/>
+    </LinearLayout>
+</LinearLayout>

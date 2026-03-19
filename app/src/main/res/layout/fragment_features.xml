@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- App filter chips -->
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:scrollbars="none" android:background="?attr/colorSurface">
+        <com.google.android.material.chip.ChipGroup android:id="@+id/chipGroupApps"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:padding="8dp" app:singleSelection="true">
+            <com.google.android.material.chip.Chip android:id="@+id/chipAll"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/filter_all" android:checked="true"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chipWA"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/filter_wa"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chipIG"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/filter_ig"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chipTG"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/filter_tg"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chipFB"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/filter_fb"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chipSnap"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/filter_snap"/>
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <!-- Feature tabs -->
+    <com.google.android.material.tabs.TabLayout android:id="@+id/tabLayout"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        app:tabMode="scrollable"/>
+
+    <androidx.viewpager2.widget.ViewPager2 android:id="@+id/viewPager"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
