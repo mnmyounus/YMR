@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.mnmyounus.ymr.R
 import com.mnmyounus.ymr.databinding.FragmentHomeBinding
-import com.mnmyounus.ymr.service.CallRecorderService
 import com.mnmyounus.ymr.service.MediaWatcherService
 import com.mnmyounus.ymr.util.PrefsUtil
 import com.mnmyounus.ymr.viewmodel.MainViewModel
@@ -19,59 +20,44 @@ class HomeFragment : Fragment() {
     private val vm: MainViewModel by activityViewModels()
 
     override fun onCreateView(i: LayoutInflater, c: ViewGroup?, s: Bundle?): View {
-        _b = FragmentHomeBinding.inflate(i, c, false); return b.root
+        _b = FragmentHomeBinding.inflate(i, c, false)
+        return b.root
     }
 
     override fun onViewCreated(v: View, s: Bundle?) {
         super.onViewCreated(v, s)
         val ctx = requireContext()
 
-        // Observe message count
         vm.totalCount.observe(viewLifecycleOwner) { b.tvMsgCount.text = it.toString() }
 
-        // Service switch
         b.switchSvc.isChecked = PrefsUtil.isSvcEnabled(ctx)
-        b.switchSvc.setOnCheckedChangeListener { _, checked ->
-            PrefsUtil.setSvcEnabled(ctx, checked)
-            b.tvSvcStatus.text = if (checked) getString(com.mnmyounus.ymr.R.string.svc_on)
-                                 else getString(com.mnmyounus.ymr.R.string.svc_off)
-            updateDot(checked)
+        b.tvSvcStatus.text = if (PrefsUtil.isSvcEnabled(ctx)) getString(R.string.svc_on) else getString(R.string.svc_off)
+        b.switchSvc.setOnCheckedChangeListener { _, on ->
+            PrefsUtil.setSvcEnabled(ctx, on)
+            b.tvSvcStatus.text = if (on) getString(R.string.svc_on) else getString(R.string.svc_off)
+            updateDot(on)
         }
         updateDot(PrefsUtil.isSvcEnabled(ctx))
 
-        // Start media watcher
-        val wi = Intent(ctx, MediaWatcherService::class.java)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ctx.startForegroundService(wi)
-        else ctx.startService(wi)
+        // Start background watcher
+        runCatching {
+            val wi = Intent(ctx, MediaWatcherService::class.java)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ctx.startForegroundService(wi)
+            else ctx.startService(wi)
+        }
 
-        // Card navigation
-        b.cardMessages.setOnClickListener {
-            (activity as? androidx.navigation.NavController) ?: run {
-                requireActivity().let {
-                    androidx.navigation.Navigation.findNavController(it, com.mnmyounus.ymr.R.id.navHost)
-                        .navigate(com.mnmyounus.ymr.R.id.featuresFragment)
-                }
-            }
-        }
-        b.cardRecorder.setOnClickListener {
-            androidx.navigation.Navigation.findNavController(requireActivity(), com.mnmyounus.ymr.R.id.navHost)
-                .navigate(com.mnmyounus.ymr.R.id.featuresFragment)
-        }
-        b.cardStatus.setOnClickListener {
-            androidx.navigation.Navigation.findNavController(requireActivity(), com.mnmyounus.ymr.R.id.navHost)
-                .navigate(com.mnmyounus.ymr.R.id.featuresFragment)
-        }
-        b.cardCalls.setOnClickListener {
-            androidx.navigation.Navigation.findNavController(requireActivity(), com.mnmyounus.ymr.R.id.navHost)
-                .navigate(com.mnmyounus.ymr.R.id.featuresFragment)
-        }
+        // All cards navigate to Features tab
+        val goFeatures = { findNavController().navigate(R.id.featuresFragment) }
+        b.cardMessages.setOnClickListener { goFeatures() }
+        b.cardCalls.setOnClickListener    { goFeatures() }
+        b.cardStatus.setOnClickListener   { goFeatures() }
+        b.cardRecorder.setOnClickListener { goFeatures() }
     }
 
     private fun updateDot(on: Boolean) {
-        b.dotStatus.setBackgroundColor(
-            if (on) requireContext().getColor(com.mnmyounus.ymr.R.color.green_ok)
-            else requireContext().getColor(com.mnmyounus.ymr.R.color.red_warn)
-        )
+        val color = if (on) requireContext().getColor(R.color.green_ok)
+                    else requireContext().getColor(R.color.red_warn)
+        b.dotStatus.setBackgroundColor(color)
     }
 
     override fun onDestroyView() { super.onDestroyView(); _b = null }
